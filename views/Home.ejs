@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Helper</title>
+  <link rel="stylesheet" href="/stylesheets/Home.css">
+</head>
+<body>
+  <header class="header">
+    <h1> Welcome to Course Helper</h1>
+    <div class="button-container">
+      <a href="/login" class="button">Login</a>
+      <a href="/" class="button">Add Course</a>
+    </div>
+  </header>
+  <main>
+    <h2 class="available">Available Courses</h2>
+    <div id="courses-container"> 
+    <% courses.forEach(function(course){ %>
+        
+      <div class="course-card">
+        <img style="width:100%;height:200px;" src="<%= course.image %>" alt="">
+        <h2><span style="font-weight:bold;"> Name: </span><%= course.name %></h2>
+        <p><span style="font-weight:bold;"> Code: </span><%= course.code %></p>
+        <p><span style="font-weight:bold;"> Credits: </span><%= course.credit %></p>
+        <p><span style="font-weight:bold;"> Description: </span> <%= course.Description %></p>
+        <div class="button-container">
+       
+                <a class="edit-course" href="/edit/<%= course._id %>" type="submit">Update</a>       
+                <a class="delete-course" href="/delete/<%= course._id %>" type="submit">Delete</a>
+        </div>
+    </div>
+
+    <% })%>
+    </div>
+  </main>
+</body>
+</html>
